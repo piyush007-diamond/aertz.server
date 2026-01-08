@@ -1,0 +1,346 @@
+{
+  "generated_at": "2026-01-08T22:31:30.466094",
+  "summary": {
+    "total": 33,
+    "matched": 11,
+    "missing": 7,
+    "errors": 15,
+    "match_rate": "33.3%"
+  },
+  "matched_appointments": [
+    {
+      "appointment_id": 26,
+      "patient_name": "Piyush Hire",
+      "appointment_date": "2026-01-09",
+      "appointment_time": "13:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 7499435963",
+      "notes": "Matched with: Appointment \u2013 7499435963"
+    },
+    {
+      "appointment_id": 27,
+      "patient_name": "Piyush Hire",
+      "appointment_date": "2026-01-09",
+      "appointment_time": "13:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 7499435963",
+      "notes": "Matched with: Appointment \u2013 7499435963"
+    },
+    {
+      "appointment_id": 28,
+      "patient_name": "Piyush Hire",
+      "appointment_date": "2026-01-07",
+      "appointment_time": "11:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 8765296632",
+      "notes": "Matched with: Appointment \u2013 8765296632"
+    },
+    {
+      "appointment_id": 29,
+      "patient_name": "Isabela Ethan",
+      "appointment_date": "2026-01-07",
+      "appointment_time": "10:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 82632673",
+      "notes": "Matched with: Appointment \u2013 82632673"
+    },
+    {
+      "appointment_id": 30,
+      "patient_name": "Mia Khalifa",
+      "appointment_date": "2026-01-07",
+      "appointment_time": "15:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 896745383",
+      "notes": "Matched with: Appointment \u2013 896745383"
+    },
+    {
+      "appointment_id": 32,
+      "patient_name": "Isabela Ethan",
+      "appointment_date": "2026-01-09",
+      "appointment_time": "12:00:00",
+      "email": "NULL",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 234164379",
+      "notes": "Matched with: Appointment \u2013 234164379"
+    },
+    {
+      "appointment_id": 33,
+      "patient_name": "David Johnson",
+      "appointment_date": "2026-01-16",
+      "appointment_time": "14:00:00",
+      "email": "eiyushhire007@gmail.com",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 12345678",
+      "notes": "Matched with: Appointment \u2013 12345678"
+    },
+    {
+      "appointment_id": 34,
+      "patient_name": "Elizabeth Olsen",
+      "appointment_date": "2026-01-13",
+      "appointment_time": "16:00:00",
+      "email": "piyushhire@gmail.com",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 873467236",
+      "notes": "Matched with: Appointment \u2013 873467236"
+    },
+    {
+      "appointment_id": 22,
+      "patient_name": "Piyush Hire",
+      "appointment_date": "2026-01-15",
+      "appointment_time": "11:00:00",
+      "email": "piyushhire007@gmail.com",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 7499435863",
+      "notes": "Matched with: Appointment \u2013 7499435863"
+    },
+    {
+      "appointment_id": 35,
+      "patient_name": "Peter Parker",
+      "appointment_date": "2026-01-09",
+      "appointment_time": "11:00:00",
+      "email": "peterparker@gmail.com",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 84396476",
+      "notes": "Matched with: Appointment \u2013 84396476"
+    },
+    {
+      "appointment_id": 36,
+      "patient_name": "Daniel Miller",
+      "appointment_date": "2026-01-07",
+      "appointment_time": "13:00:00",
+      "email": "DanielMiller96@gmail.com",
+      "status": "matched",
+      "calendar_event_title": "Appointment \u2013 7328496",
+      "notes": "Matched with: Appointment \u2013 7328496"
+    }
+  ],
+  "missing_appointments": [
+    {
+      "appointment_id": 3,
+      "patient_name": "Mohammed Mohammed",
+      "appointment_date": "2023-04-02",
+      "appointment_time": "14:00:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 12,
+      "patient_name": "John Doe",
+      "appointment_date": "2023-04-20",
+      "appointment_time": "14:30:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 11,
+      "patient_name": "John Doe",
+      "appointment_date": "2023-03-15",
+      "appointment_time": "14:30:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 14,
+      "patient_name": "bmb",
+      "appointment_date": "2025-09-24",
+      "appointment_time": "01:45:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 15,
+      "patient_name": "Emma Johnson",
+      "appointment_date": "2023-04-15",
+      "appointment_time": "10:30:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 25,
+      "patient_name": "piuush",
+      "appointment_date": "2026-01-05",
+      "appointment_time": "16:30:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    },
+    {
+      "appointment_id": 31,
+      "patient_name": "appoitnment",
+      "appointment_date": "2026-01-05",
+      "appointment_time": "03:00:00",
+      "email": "NULL",
+      "status": "missing",
+      "calendar_event_title": null,
+      "notes": "No matching calendar event found"
+    }
+  ],
+  "errors": [
+    {
+      "appointment_id": 1,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 2,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 4,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 5,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 6,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 7,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 8,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 9,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 10,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 16,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 17,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 18,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 19,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "NULL",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 20,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": "Not provided",
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    },
+    {
+      "appointment_id": 21,
+      "patient_name": null,
+      "appointment_date": null,
+      "appointment_time": null,
+      "email": null,
+      "status": "error",
+      "calendar_event_title": null,
+      "notes": "No appointment_date found"
+    }
+  ]
+}

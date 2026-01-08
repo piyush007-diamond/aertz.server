@@ -1,0 +1,198 @@
+function [vehicle, drive_cycle] = setup_full_params()
+    % setup_full_params - Define ALL BMW i3 parameters for full simulation
+    % Returns:
+    %   vehicle: Struct containing all physical and electrical parameters
+    %   drive_cycle: Struct containing time and velocity vectors
+    
+    %% 1. Physical Vehicle Parameters (Tata Nexon EV - Final Tune)
+    vehicle.M_vehicle = 1500;      % Curb weight (kg)
+    vehicle.Cd = 0.33;            % Drag coefficient (Optimized)
+    vehicle.A_frontal = 2.54;      % Frontal area (m^2)
+    vehicle.C_RR = 0.0095;          % Rolling resistance
+    vehicle.r_tire = 0.344;        % Tire radius (m)
+    vehicle.g = 9.81;              % Gravity (m/s^2)
+    vehicle.rho_air = 1.225;       % Air density (kg/m^3)
+    
+    %% 2. Transmission
+    vehicle.gear_ratio = 8.3;      % Single speed transmission
+    vehicle.eta_trans = 0.97;      % Transmission efficiency (97%)
+    
+    %% 3. Electric Motor (95 kW PMSM)
+    % Peak Torque: 215 Nm
+    % Peak Power: 95 kW
+    % Max Speed: 10500 RPM
+    
+    vehicle.motor.peak_torque = 215; % Nm
+    
+    % Generate Efficiency Map (Torque x Speed)
+    % Speed range: 0 to 10500 RPM
+    % Torque range: 0 to 215 Nm
+    
+    speed_vec = linspace(0, 10500, 25); % RPM
+    torque_vec = linspace(0, 215, 25);  % Nm
+    
+    [S, T] = meshgrid(speed_vec, torque_vec);
+    
+    % Synthetic Efficiency Map Generation
+    % Base efficiency: 95%
+    % Peak region: 97%
+    % Very flat map for NEDC (Low load efficiency)
+    
+    % Normalized coordinates for "sweet spot"
+    s_norm = (S - 4200) / 4200; 
+    t_norm = (T - 130) / 130;   
+    dist = sqrt(s_norm.^2 + t_norm.^2);
+    
+    % Efficiency function: Peak - small_distance_penalty
+    eff_map = 0.97 - 0.05 * dist; % Reduced penalty from 0.10 to 0.05
+    eff_map(eff_map < 0.90) = 0.90; % Floor efficiency raised to 90%
+    eff_map(eff_map > 0.98) = 0.98; % Cap
+    
+    vehicle.motor.speed_vec = speed_vec;   % RPM
+    vehicle.motor.torque_vec = torque_vec; % Nm
+    vehicle.motor.eff_map = eff_map;       % 0.0 to 1.0
+    
+    % Max Torque Curve
+    % Constant 215 Nm until 4200 RPM, then constant power (P=T*w)
+    max_torque = zeros(size(speed_vec));
+    for i = 1:length(speed_vec)
+        w = speed_vec(i) * 2 * pi / 60; % rad/s
+        if speed_vec(i) < 4200
+            max_torque(i) = 215;
+        else
+            % T = P / w
+            if w > 0
+                max_torque(i) = 95000 / w;
+            else
+                max_torque(i) = 215;
+            end
+        end
+    end
+    vehicle.motor.max_torque = max_torque;
+    
+    %% 4. Inverter
+    % Simplified: 98% constant (SiC Inverter)
+    vehicle.inverter.eff_map = 0.98 * ones(size(eff_map));
+    
+    %% 5. Battery Pack (96s2p, 43Ah cells, 30.2 kWh total)
+    vehicle.battery.capacity_Ah = 43; % Per cell (2p = 86Ah total)
+    vehicle.battery.n_series = 96;
+    vehicle.battery.n_parallel = 2;
+    
+    % Thevenin Parameters (SoC dependent: 0% to 100%)
+    soc_vec = 0:0.1:1; % 0 to 1
+    
+    % OCV Curve (Li-ion typical: 3.0V to 4.2V per cell)
+    % Steep drop at end, flat middle, rise at top
+    cell_ocv = [3.0, 3.3, 3.45, 3.55, 3.62, 3.68, 3.75, 3.85, 3.95, 4.1, 4.2];
+    vehicle.battery.soc_vec = soc_vec;
+    vehicle.battery.ocv_vec = cell_ocv * vehicle.battery.n_series; % Pack Voltage
+    
+    % Internal Resistance (R0) - Reduced for better efficiency
+    vehicle.battery.r0_vec = 0.5 * [0.06, 0.05, 0.045, 0.04, 0.038, 0.038, 0.038, 0.04, 0.042, 0.045, 0.05]; 
+    
+    % Polarization R1 and C1 (Simplified constant for now)
+    vehicle.battery.r1_vec = 0.02 * ones(size(soc_vec));
+    vehicle.battery.c1_vec = 2000 * ones(size(soc_vec));
+    
+    %% 6. Regenerative Braking
+    vehicle.regen.max_power = 95000; % 90 kW limit (Boosted)
+    vehicle.regen.max_decel = 8.0;   % 8.0 m/s^2 limit
+    
+    %% 7. Auxiliaries
+    vehicle.aux_power = 100; % Watts (Minimal load)
+    
+    %% 8. Driver Model
+    vehicle.driver.Kp = 55;
+    vehicle.driver.Ki = 2.2;
+    
+    %% 8. Driving Cycle (NEDC)
+    % Generate standard NEDC cycle
+    drive_cycle = generate_nedc_cycle();
+    
+end
+
+function cycle = generate_nedc_cycle()
+    % Helper to generate NEDC time/speed vectors
+    
+    % ECE-15 (Urban) - Repeated 4 times
+    t_ece = []; v_ece = [];
+    
+    % One ECE-15 cycle (195s)
+    % Idle 11s
+    t_ece = [t_ece, 1:11]; v_ece = [v_ece, zeros(1,11)];
+    % Accel to 15 km/h in 4s
+    t_ece = [t_ece, 12:15]; v_ece = [v_ece, linspace(0,15,4)];
+    % Cruise 15 km/h for 8s
+    t_ece = [t_ece, 16:23]; v_ece = [v_ece, 15*ones(1,8)];
+    % Decel to 0 in 5s
+    t_ece = [t_ece, 24:28]; v_ece = [v_ece, linspace(15,0,5)];
+    % Idle 21s
+    t_ece = [t_ece, 29:49]; v_ece = [v_ece, zeros(1,21)];
+    % Accel to 32 km/h in 12s
+    t_ece = [t_ece, 50:61]; v_ece = [v_ece, linspace(0,32,12)];
+    % Cruise 32 km/h for 24s
+    t_ece = [t_ece, 62:85]; v_ece = [v_ece, 32*ones(1,24)];
+    % Decel to 0 in 11s
+    t_ece = [t_ece, 86:96]; v_ece = [v_ece, linspace(32,0,11)];
+    % Idle 21s
+    t_ece = [t_ece, 97:117]; v_ece = [v_ece, zeros(1,21)];
+    % Accel to 50 km/h in 26s
+    t_ece = [t_ece, 118:143]; v_ece = [v_ece, linspace(0,50,26)];
+    % Cruise 50 km/h for 12s
+    t_ece = [t_ece, 144:155]; v_ece = [v_ece, 50*ones(1,12)];
+    % Decel to 35 km/h in 8s
+    t_ece = [t_ece, 156:163]; v_ece = [v_ece, linspace(50,35,8)];
+    % Cruise 35 km/h for 13s
+    t_ece = [t_ece, 164:176]; v_ece = [v_ece, 35*ones(1,13)];
+    % Decel to 0 in 12s
+    t_ece = [t_ece, 177:188]; v_ece = [v_ece, linspace(35,0,12)];
+    % Idle 7s
+    t_ece = [t_ece, 189:195]; v_ece = [v_ece, zeros(1,7)];
+    
+    % Repeat 4 times
+    full_v = [];
+    for i=1:4
+        full_v = [full_v, v_ece];
+    end
+    
+    % EUDC (Extra Urban) - 400s
+    v_eudc = zeros(1, 400);
+    % Simplified EUDC construction for brevity (can be detailed if needed)
+    % For now, let's use the previous simple EUDC logic or just append zeros if complex
+    % Let's use a proper approximation:
+    
+    % Idle 20s
+    idx = 1;
+    v_eudc(idx:idx+19) = 0; idx=idx+20;
+    % Accel to 70 in 41s
+    v_eudc(idx:idx+40) = linspace(0,70,41); idx=idx+41;
+    % Cruise 70 for 50s
+    v_eudc(idx:idx+49) = 70; idx=idx+50;
+    % Decel to 50 in 8s
+    v_eudc(idx:idx+7) = linspace(70,50,8); idx=idx+8;
+    % Cruise 50 for 69s
+    v_eudc(idx:idx+68) = 50; idx=idx+69;
+    % Accel to 70 in 13s
+    v_eudc(idx:idx+12) = linspace(50,70,13); idx=idx+13;
+    % Cruise 70 for 50s
+    v_eudc(idx:idx+49) = 70; idx=idx+50;
+    % Accel to 100 in 35s
+    v_eudc(idx:idx+34) = linspace(70,100,35); idx=idx+35;
+    % Cruise 100 for 30s
+    v_eudc(idx:idx+29) = 100; idx=idx+30;
+    % Accel to 120 in 20s
+    v_eudc(idx:idx+19) = linspace(100,120,20); idx=idx+20;
+    % Cruise 120 for 10s
+    v_eudc(idx:idx+9) = 120; idx=idx+10;
+    % Decel to 0 in 34s
+    v_eudc(idx:idx+33) = linspace(120,0,34); idx=idx+34;
+    % Idle 20s
+    v_eudc(idx:end) = 0;
+    
+    full_v = [full_v, v_eudc];
+    
+    cycle.time = 0:(length(full_v)-1);
+    cycle.velocity_kmh = full_v;
+    cycle.velocity_ms = full_v / 3.6;
+end

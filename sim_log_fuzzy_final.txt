@@ -1,0 +1,61 @@
+﻿Building Fuzzy Logic Model with HESS...
+[Warning: The model name 'bmw_i3_fuzzy_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_fuzzy_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_fuzzy_model (line 10)
+In run_fuzzy_simulation (line 7)
+In run (line 112)] 
+Loading parameters...
+Building Subsystems...
+Generating Fuzzy Inference System...
+Connecting Subsystems...
+Model "bmw_i3_fuzzy_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data...
+Calculating metrics...
+  > Peak C-rate: 0.50 C (Stress Factor: 1.20)
+  > Avg DoD: 27.72% (Stress Factor: 0.89)
+  > Cycle EFC: 0.2772
+  > Battery EOL at: 463948 km / 23.2 years
+  > Final SOH: 80.00% (Cycle loss: 17.59%, Calendar loss: 2.41%)
+HESS metrics calculated: Peak Shaving = 39.7%
+Battery metrics calculated successfully.
+
+==================================================
+Fuzzy Logic Controller + HESS Simulation Results
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.63 km
+Total Energy:         1215.84 Wh
+Consumption:          114.36 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                3.97 %
+SoC Drop:             27.71 %
+Max Speed Error:      5.39 km/h
+RMS Speed Error:      1.10 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        114.36 Wh/km
+Cycle Count (EFC):        0.2772 cycles
+Battery Lifetime:         463948 km / 23.2 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  22873 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.043 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.26 kW
+Peak Assist Delivered:    26.84 kW
+Energy Throughput:        0.6016 kWh
+Peak Power Shaving:       39.7 %
+SC Utilization (SoC):     45.2% - 55.8%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.

@@ -1,0 +1,189 @@
+Building Simulink Model...
+[Warning: The model name 'bmw_i3_full_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_full_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_full_model (line 13)
+In run_full_simulation (line 6)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_full_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data from simOut object...
+Calculating battery health metrics...
+  > Peak C-rate WITH HESS: 0.49 C (Stress Factor: 1.19)
+  > Peak C-rate WITHOUT HESS: 1.38 C (Stress Factor: 2.08)
+  > Avg DoD: 4.56% (Stress Factor: 0.77)
+  > Cycle EFC: 0.0456
+  > Battery EOL at: 210881 km / 10.5 years
+  > Final SOH: 80.00% (Cycle loss: 13.18%, Calendar loss: 6.82%)
+  > Battery EOL WITHOUT HESS (Baseline): 94539 km / 4.7 years
+  > HESS Lifetime Extension: +116341 km (+123.1%)
+HESS metrics calculated: Peak Shaving = 66.5%
+Battery metrics calculated successfully.
+Battery metrics calculated successfully.
+
+==================================================
+Tata Nexon EV Simulation Results (Full Model)
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.80 km
+Total Energy:         1242.85 Wh
+Consumption:          115.10 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                4.63 %
+SoC Drop:             4.56 %
+Max Speed Error:      0.04 km/h
+RMS Speed Error:      0.01 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        115.10 Wh/km
+Cycle Count (EFC):        0.0456 cycles
+Battery Lifetime:         210881 km / 10.5 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  23019 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.095 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.39 kW
+Peak Assist Delivered:    29.72 kW
+Energy Throughput:        0.6326 kWh
+Peak Power Shaving:       66.5 %
+SC Utilization (SoC):     71.5% - 79.0%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.
+Building Simulink Model...
+[Warning: The model name 'bmw_i3_full_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_full_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_full_model (line 13)
+In run_full_simulation (line 6)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_full_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data from simOut object...
+Calculating battery health metrics...
+  > Peak C-rate WITH HESS: 0.49 C (Stress Factor: 1.19)
+  > Peak C-rate WITHOUT HESS: 1.38 C (Stress Factor: 2.08)
+  > Avg DoD: 4.56% (Stress Factor: 0.77)
+  > Cycle EFC: 0.0456
+  > Battery EOL at: 594653 km / 29.7 years
+  > Final SOH: 80.00% (Cycle loss: 12.91%, Calendar loss: 7.09%)
+  > Battery EOL WITHOUT HESS (Baseline): 270207 km / 13.5 years
+  > HESS Lifetime Extension: +324447 km (+120.1%)
+HESS metrics calculated: Peak Shaving = 66.5%
+Battery metrics calculated successfully.
+Battery metrics calculated successfully.
+
+==================================================
+Tata Nexon EV Simulation Results (Full Model)
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.80 km
+Total Energy:         1242.85 Wh
+Consumption:          115.10 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                4.63 %
+SoC Drop:             4.56 %
+Max Speed Error:      0.04 km/h
+RMS Speed Error:      0.01 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        115.10 Wh/km
+Cycle Count (EFC):        0.0456 cycles
+Battery Lifetime:         594653 km / 29.7 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  23019 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.034 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.39 kW
+Peak Assist Delivered:    29.72 kW
+Energy Throughput:        0.6326 kWh
+Peak Power Shaving:       66.5 %
+SC Utilization (SoC):     71.5% - 79.0%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.
+Building Simulink Model...
+[Warning: The model name 'bmw_i3_full_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_full_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_full_model (line 13)
+In run_full_simulation (line 6)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_full_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data from simOut object...
+Calculating battery health metrics...
+  > Peak C-rate WITH HESS: 0.49 C (Stress Factor: 1.19)
+  > Peak C-rate WITHOUT HESS: 1.38 C (Stress Factor: 2.08)
+  > Avg DoD: 4.56% (Stress Factor: 0.77)
+  > Cycle EFC: 0.0456
+  > Battery EOL at: 331358 km / 16.6 years
+  > Final SOH: 80.00% (Cycle loss: 13.08%, Calendar loss: 6.92%)
+  > Battery EOL WITHOUT HESS (Baseline): 149298 km / 7.5 years
+  > HESS Lifetime Extension: +182060 km (+121.9%)
+HESS metrics calculated: Peak Shaving = 66.5%
+Battery metrics calculated successfully.
+Battery metrics calculated successfully.
+
+==================================================
+Tata Nexon EV Simulation Results (Full Model)
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.80 km
+Total Energy:         1242.85 Wh
+Consumption:          115.10 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                4.63 %
+SoC Drop:             4.56 %
+Max Speed Error:      0.04 km/h
+RMS Speed Error:      0.01 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        115.10 Wh/km
+Cycle Count (EFC):        0.0456 cycles
+Battery Lifetime:         331358 km / 16.6 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  23019 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.060 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.39 kW
+Peak Assist Delivered:    29.72 kW
+Energy Throughput:        0.6326 kWh
+Peak Power Shaving:       66.5 %
+SC Utilization (SoC):     71.5% - 79.0%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.

@@ -1,0 +1,24 @@
+﻿Loaded fuzblock
+    {'fuzblock'                                             }
+    {'fuzblock/FIS Tree'                                    }
+    {'fuzblock/Fuzzy Logic Controller'                     }
+    {'fuzblock/Fuzzy Logic Controller with Ruleviewer'    }
+    {'fuzblock/Fuzzy PID Controller'                        }
+    {'fuzblock/Membership Functions'                       }
+    {'fuzblock/Membership Functions/Diff. Sigmoidal MF'    }
+    {'fuzblock/Membership Functions/Gaussian MF'           }
+    {'fuzblock/Membership Functions/Gaussian2 MF'          }
+    {'fuzblock/Membership Functions/Generalized Bell MF'   }
+    {'fuzblock/Membership Functions/Linear S-shaped MF'    }
+    {'fuzblock/Membership Functions/Linear Z-shaped MF'    }
+    {'fuzblock/Membership Functions/Pi-shaped MF'          }
+    {'fuzblock/Membership Functions/Probabilistic OR'      }
+    {'fuzblock/Membership Functions/Probabilistic Rule Agg'}
+    {'fuzblock/Membership Functions/Prod. Sigmoidal MF'    }
+    {'fuzblock/Membership Functions/S-shaped MF'           }
+    {'fuzblock/Membership Functions/Sigmoidal MF'          }
+    {'fuzblock/Membership Functions/Trapezoidal MF'        }
+    {'fuzblock/Membership Functions/Triangular MF'         }
+    {'fuzblock/Membership Functions/Z-shaped MF'           }
+
+Could not load fl_lib

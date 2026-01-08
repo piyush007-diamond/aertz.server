@@ -1,0 +1,151 @@
+﻿Building MPC Model with HESS...
+[Warning: The model name 'bmw_i3_mpc_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_mpc_model" at the command line to find the other uses
+of this name. You should change the name of the model to avoid problems.] 
+[> In build_mpc_model (line 13)
+In run_mpc_simulation (line 4)
+In run (line 112)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_mpc_model" created successfully!
+Running Simulation...
+Simulation Complete. Analyzing Results...
+  > Peak C-rate: 0.50 C (Stress Factor: 1.20)
+  > Avg DoD: 27.81% (Stress Factor: 0.89)
+  > Cycle EFC: 0.2781
+  > Battery EOL at: 468684 km / 23.4 years
+  > Final SOH: 80.00% (Cycle loss: 17.58%, Calendar loss: 2.42%)
+HESS metrics calculated: Peak Shaving = 48.7%
+Battery metrics calculated successfully.
+
+--- MPC + HESS Results ---
+Energy Consumption: 114.93 Wh/km
+Battery Lifetime: 468684 km
+Peak Shaving: 48.7%
+SC Energy Throughput: 0.635 kWh
+Building Simulink Model...
+[Warning: The model name 'bmw_i3_full_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_full_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_full_model (line 13)
+In run_full_simulation (line 6)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_full_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data from simOut object...
+Calculating battery health metrics...
+  > Peak C-rate WITH HESS: 0.50 C (Stress Factor: 1.20)
+  > Peak C-rate WITHOUT HESS: 1.41 C (Stress Factor: 2.11)
+  > Avg DoD: 27.91% (Stress Factor: 0.89)
+  > Cycle EFC: 0.2791
+  > Battery EOL at: 466607 km / 23.3 years
+  > Final SOH: 80.00% (Cycle loss: 17.59%, Calendar loss: 2.42%)
+  > Battery EOL WITHOUT HESS (Baseline): 167525 km / 8.4 years
+  > HESS Lifetime Extension: +299081 km (+178.5%)
+HESS metrics calculated: Peak Shaving = 39.9%
+Battery metrics calculated successfully.
+Battery metrics calculated successfully.
+
+==================================================
+Tata Nexon EV Simulation Results (Full Model)
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.80 km
+Total Energy:         1242.80 Wh
+Consumption:          115.09 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                4.63 %
+SoC Drop:             27.90 %
+Max Speed Error:      0.04 km/h
+RMS Speed Error:      0.01 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        115.09 Wh/km
+Cycle Count (EFC):        0.2791 cycles
+Battery Lifetime:         466607 km / 23.3 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  23018 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.043 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.39 kW
+Peak Assist Delivered:    29.67 kW
+Energy Throughput:        0.6326 kWh
+Peak Power Shaving:       39.9 %
+SC Utilization (SoC):     44.5% - 55.9%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.
+Building Simulink Model...
+[Warning: The model name 'bmw_i3_full_model' is shadowing another name in the MATLAB workspace or path. Type "which -all bmw_i3_full_model" at the command line to find the other
+uses of this name. You should change the name of the model to avoid problems.] 
+[> In build_full_model (line 13)
+In run_full_simulation (line 6)] 
+Loading parameters...
+Building Subsystems...
+Connecting Subsystems...
+Model "bmw_i3_full_model" created successfully!
+Running Simulation (NEDC Cycle)...
+Simulation Complete.
+Extracting data from simOut object...
+Calculating battery health metrics...
+  > Peak C-rate WITH HESS: 0.49 C (Stress Factor: 1.19)
+  > Peak C-rate WITHOUT HESS: 1.38 C (Stress Factor: 2.08)
+  > Avg DoD: 4.56% (Stress Factor: 0.77)
+  > Cycle EFC: 0.0456
+  > Battery EOL at: 490871 km / 24.5 years
+  > Final SOH: 80.00% (Cycle loss: 12.57%, Calendar loss: 7.43%)
+  > Battery EOL WITHOUT HESS (Baseline): 226959 km / 11.3 years
+  > HESS Lifetime Extension: +263911 km (+116.3%)
+HESS metrics calculated: Peak Shaving = 39.9%
+Battery metrics calculated successfully.
+Battery metrics calculated successfully.
+
+==================================================
+Tata Nexon EV Simulation Results (Full Model)
+==================================================
+Driving Cycle:        NEDC
+Total Distance:       10.80 km
+Total Energy:         1242.85 Wh
+Consumption:          115.10 Wh/km
+Benchmark:            110.00 Wh/km
+Error:                4.63 %
+SoC Drop:             4.56 %
+Max Speed Error:      0.04 km/h
+RMS Speed Error:      0.01 km/h
+==================================================
+
+==================================================
+Battery Health & Efficiency Metrics
+==================================================
+Energy Efficiency:        115.10 Wh/km
+Cycle Count (EFC):        0.0456 cycles
+Battery Lifetime:         490871 km / 24.5 years
+Expected Replacements:    0 times
+Lifetime kWh Throughput:  23019 kWh
+Current SOH:              100.00 %
+SOH Degradation Rate:     0.041 %/1000km
+
+--------------------------------------------------
+Supercapacitor HESS Performance
+--------------------------------------------------
+Peak Regen Absorbed:      27.39 kW
+Peak Assist Delivered:    29.72 kW
+Energy Throughput:        0.6326 kWh
+Peak Power Shaving:       39.9 %
+SC Utilization (SoC):     44.5% - 55.9%
+==================================================
+VALIDATION STATUS: PASS
+Generating battery health visualizations...
+Battery health visualizations generated.
+Battery health dashboard created.

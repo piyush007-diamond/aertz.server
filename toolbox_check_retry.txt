@@ -1,0 +1,10 @@
+﻿C:\Program Files\MATLAB\R2025b\toolbox\fuzzy\fuzzy\mamfis.m  % mamfis constructor
+----------------------------------------------------------------------
+MATLAB Version: 25.2.0.3042426 (R2025b) Update 1
+MATLAB License Number: 40642036
+Operating System: Microsoft Windows 11 Home Version 10.0 (Build 26200)
+Java Version: Java is not loaded
+----------------------------------------------------------------------
+MATLAB                                                Version 25.2        (R2025b)
+Simulink                                              Version 25.2        (R2025b)
+Fuzzy Logic Toolbox                                   Version 25.2        (R2025b)

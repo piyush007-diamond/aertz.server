@@ -1,0 +1,51 @@
+# Render.com deployment configuration
+# This file tells Render how to deploy and run the services
+
+services:
+  # Main API Service (booking + calendar)
+  - type: web
+    name: appointment-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn booking_api:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SMTP_EMAIL
+        sync: false
+      - key: SMTP_APP_PASSWORD
+        sync: false
+      - key: CLINIC_NAME
+        sync: false
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
+      - key: BOOKING_PAGE_URL
+        sync: false
+
+  # Cron job for Verification (runs at 12:30 PM IST = 7:00 AM UTC)
+  - type: cron
+    name: nightly-verification
+    env: python
+    schedule: "0 7 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scheduled_verify.py
+    envVars:
+      - fromService:
+          name: appointment-api
+          type: web
+
+  # Cron job for Recovery (runs at 1:00 PM IST = 7:30 AM UTC)
+  - type: cron
+    name: appointment-recovery
+    env: python
+    schedule: "30 7 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python recovery_workflow.py
+    envVars:
+      - fromService:
+          name: appointment-api
+          type: web
