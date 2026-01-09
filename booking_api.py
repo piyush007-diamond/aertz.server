@@ -18,7 +18,8 @@ from flask_cors import CORS
 
 from dotenv import load_dotenv
 from slot_checker import get_available_slots, is_slot_available
-from calendar_booker import create_appointment
+from calendar_booker import create_appointment, test_connection as test_calendar_connection
+from google_sheets_client import test_connection as test_sheets_connection
 
 # Load environment variables
 env_path = Path(__file__).parent / '.env'
@@ -144,6 +145,22 @@ def book_appointment():
             return jsonify({'error': 'Failed to create appointment'}), 500
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/debug', methods=['GET'])
+def debug_info():
+    """Debug endpoint to check connectivity."""
+    cal_status = test_calendar_connection()
+    sheets_status = test_sheets_connection()
+    
+    return jsonify({
+        'calendar_connected': cal_status,
+        'sheets_connected': sheets_status,
+        'google_token_present': os.getenv('GOOGLE_TOKEN_JSON') is not None,
+        'calendar_id': os.getenv('GOOGLE_CALENDAR_ID', 'primary'),
+        'timezone': 'America/Phoenix',
+        'server_time': datetime.now(ARIZONA_TZ).isoformat()
+    })
 
 
 @app.route('/api/health', methods=['GET'])
