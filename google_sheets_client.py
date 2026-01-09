@@ -153,15 +153,9 @@ def test_connection():
         spreadsheet_id = get_or_create_spreadsheet()
         service = get_sheets_service()
         result = service.spreadsheets().get(spreadsheetId=spreadsheet_id).execute()
-        
-        print(f"✅ Google Sheets connection successful!")
-        print(f"   Spreadsheet: {result.get('properties', {}).get('title', 'Unknown')}")
-        print(f"   URL: https://docs.google.com/spreadsheets/d/{spreadsheet_id}")
-        return True
+        return True, f"Connected to {result.get('properties', {}).get('title', 'Unknown')}"
     except Exception as e:
-        print(f"❌ Google Sheets connection failed!")
-        print(f"   Error: {e}")
-        return False
+        return False, str(e)
 
 
 if __name__ == '__main__':

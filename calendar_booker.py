@@ -137,22 +137,9 @@ def test_connection():
     try:
         service = get_calendar_service()
         calendar = service.calendars().get(calendarId=CALENDAR_ID).execute()
-        
-        print(f"✅ Calendar connection successful (with write access)!")
-        print(f"   Calendar: {calendar.get('summary', 'Unknown')}")
-        print(f"   Access Role: {calendar.get('accessRole', 'Unknown')}")
-        
-        # Check if we have write access
-        if calendar.get('accessRole') in ['owner', 'writer']:
-            print(f"   ✅ Can create events")
-        else:
-            print(f"   ⚠️ May not have write access")
-        
-        return True
+        return True, "Connected"
     except Exception as e:
-        print(f"❌ Calendar connection failed!")
-        print(f"   Error: {e}")
-        return False
+        return False, str(e)
 
 
 def main():

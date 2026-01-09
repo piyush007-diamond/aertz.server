@@ -150,12 +150,14 @@ def book_appointment():
 @app.route('/api/debug', methods=['GET'])
 def debug_info():
     """Debug endpoint to check connectivity."""
-    cal_status = test_calendar_connection()
-    sheets_status = test_sheets_connection()
+    cal_ok, cal_msg = test_calendar_connection()
+    sheets_ok, sheets_msg = test_sheets_connection()
     
     return jsonify({
-        'calendar_connected': cal_status,
-        'sheets_connected': sheets_status,
+        'calendar_connected': cal_ok,
+        'calendar_message': cal_msg,
+        'sheets_connected': sheets_ok,
+        'sheets_message': sheets_msg,
         'google_token_present': os.getenv('GOOGLE_TOKEN_JSON') is not None,
         'calendar_id': os.getenv('GOOGLE_CALENDAR_ID', 'primary'),
         'timezone': 'America/Phoenix',
