@@ -18,6 +18,7 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from dotenv import load_dotenv
+from cloud_auth import get_credentials as get_cloud_credentials
 
 # Load environment variables
 env_path = Path(__file__).parent / '.env'
@@ -35,17 +36,8 @@ SLOT_DURATION_MINUTES = 60  # 1 hour slots
 
 
 def get_calendar_service():
-    """Get authenticated Google Calendar service."""
-    if not TOKEN_FILE.exists():
-        raise FileNotFoundError(f"Token file not found: {TOKEN_FILE}")
-    
-    creds = Credentials.from_authorized_user_file(str(TOKEN_FILE))
-    
-    if creds and creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-        with open(TOKEN_FILE, 'w') as token:
-            token.write(creds.to_json())
-    
+    """Get authenticated Google Calendar service using cloud_auth helper."""
+    creds = get_cloud_credentials()
     return build('calendar', 'v3', credentials=creds)
 
 
