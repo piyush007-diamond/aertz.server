@@ -9,7 +9,7 @@ const CONFIG = {
     workingHours: { start: 9, end: 17 },  // 9 AM - 5 PM
     slotDuration: 60,  // 1 hour slots
     // API endpoint - update this when deploying
-    apiUrl: 'http://localhost:5000/api'
+    apiUrl: 'https://aertz-server.onrender.com/api'
 };
 
 // State
