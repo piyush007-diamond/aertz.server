@@ -20,6 +20,7 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from cloud_auth import get_credentials as get_cloud_credentials
 
 # Load environment variables
 env_path = Path(__file__).parent / '.env'
@@ -36,34 +37,8 @@ CALENDAR_ID = os.getenv('GOOGLE_CALENDAR_ID', 'primary')
 
 
 def get_credentials() -> Credentials:
-    """
-    Get or refresh Google OAuth credentials.
-    Will prompt user for authentication on first run.
-    """
-    creds = None
-    
-    # Load existing token if available
-    if TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
-    
-    # If no valid credentials, prompt for login
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            if not CREDENTIALS_FILE.exists():
-                raise FileNotFoundError(
-                    f"Credentials file not found: {CREDENTIALS_FILE}\n"
-                    "Please download credentials.json from Google Cloud Console"
-                )
-            flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_FILE), SCOPES)
-            creds = flow.run_local_server(port=0)
-        
-        # Save credentials for next run
-        with open(TOKEN_FILE, 'w') as token:
-            token.write(creds.to_json())
-    
-    return creds
+    """Get credentials using cloud_auth helper (supports env vars)."""
+    return get_cloud_credentials()
 
 
 def get_calendar_service():

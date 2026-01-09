@@ -25,6 +25,7 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from dotenv import load_dotenv
+from cloud_auth import get_credentials as get_cloud_credentials
 
 # Load environment variables
 env_path = Path(__file__).parent / '.env'
@@ -50,20 +51,8 @@ HEADERS = [
 
 
 def get_sheets_service():
-    """Get authenticated Google Sheets service using existing token."""
-    if not TOKEN_FILE.exists():
-        raise FileNotFoundError(
-            f"Token file not found: {TOKEN_FILE}\n"
-            "Please run google_calendar_client.py --test first to authenticate."
-        )
-    
-    creds = Credentials.from_authorized_user_file(str(TOKEN_FILE))
-    
-    if creds and creds.expired and creds.refresh_token:
-        creds.refresh(Request())
-        with open(TOKEN_FILE, 'w') as token:
-            token.write(creds.to_json())
-    
+    """Get authenticated Google Sheets service using cloud_auth helper."""
+    creds = get_cloud_credentials()
     return build('sheets', 'v4', credentials=creds)
 
 
