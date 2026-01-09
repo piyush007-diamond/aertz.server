@@ -54,6 +54,7 @@ def get_slots():
     
     try:
         slots = get_available_slots(date_str)
+        print(f"DEBUG: Found {len(slots)} available slots for {date_str}")
         return jsonify({
             'date': date_str,
             'timezone': 'America/Phoenix',
