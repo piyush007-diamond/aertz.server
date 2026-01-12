@@ -1,15 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "booking_page/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/booking_page/$1"
-    }
-  ]
+  "buildCommand": "cd booking_page && echo 'No build needed'",
+  "outputDirectory": "booking_page",
+  "cleanUrls": true
 }
